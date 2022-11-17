@@ -11,6 +11,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
  */
 class User implements UserInterface
 {
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -29,10 +30,16 @@ class User implements UserInterface
     private $roles = [];
 
     /**
-     * @var string The hashed password
      * @ORM\Column(type="string")
      */
     private $password;
+
+    public function __construct($id = null, $email = null, $password = null)
+    {
+        $this->id = $id;
+        $this->email = $email;
+        $this->password = $password;
+    }
 
     public function getId(): ?int
     {

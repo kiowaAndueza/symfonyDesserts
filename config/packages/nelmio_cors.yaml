@@ -19,6 +19,6 @@ nelmio_cors:
             origin_regex: true
             allow_origin: ['^http://localhost:[0-9]+']
             allow_headers: []
-            allow_methods: ['GET']
+            allow_methods: ['GET', 'POST']
             max_age: 3600
             hosts: ['^api\.']

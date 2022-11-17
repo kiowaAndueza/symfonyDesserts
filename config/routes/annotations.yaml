@@ -1,5 +1,9 @@
 controllers:
-    resource: ../../src/Controller/
+    resource: ../../src/Controller
+    type: annotation
+
+api:
+    resource: ../../src/Controller/LibraryController.php
     type: annotation
     prefix: /api/
 
