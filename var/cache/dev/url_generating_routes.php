@@ -15,9 +15,11 @@ return [
     '_profiler_router' => [['token'], ['_controller' => 'web_profiler.controller.router::panelAction'], [], [['text', '/router'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], []],
     '_profiler_exception' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::body'], [], [['text', '/exception'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], []],
     '_profiler_exception_css' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::stylesheet'], [], [['text', '/exception.css'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], []],
-    'user_create' => [[], ['_controller' => 'App\\Controller\\UsersController::create'], [], [['text', '/user']], [], []],
+    'app_login' => [[], ['_controller' => 'App\\Controller\\SecurityController::login'], [], [['text', '/login']], [], []],
+    'app_logout' => [[], ['_controller' => 'App\\Controller\\SecurityController::logout'], [], [['text', '/logout']], [], []],
     'user_registration' => [[], ['_controller' => 'App\\Controller\\UsersController::registration'], [], [['text', '/register']], [], []],
     'desserts_get' => [[], ['_controller' => 'App\\Controller\\LibraryController::list'], [], [['text', '/api/desserts']], [], []],
     'dessert_delete' => [['id'], ['_controller' => 'App\\Controller\\LibraryController::delete'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/api/desserts']], [], []],
     'create_dessert' => [[], ['_controller' => 'App\\Controller\\LibraryController::create'], [], [['text', '/api/dessert']], [], []],
+    'fos_js_routing_js' => [['_format'], ['_controller' => 'fos_js_routing.controller::indexAction', '_format' => 'js'], ['_format' => 'js|json'], [['variable', '.', 'js|json', '_format', true], ['text', '/js/routing']], [], []],
 ];

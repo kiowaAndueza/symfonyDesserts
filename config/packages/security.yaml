@@ -5,39 +5,24 @@ security:
             algorithm: bcrypt
             cost: 12
     providers:
-                users:
-                    entity:
-                        class: App\Entity\User
+            users:
+                entity:
+                    class: App\Entity\User
+                    property: email
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
+            anonymous: true
             lazy: true
-            logout:
-                path: logout
-            form_login:
-                login_path: login
-                check_path: login
-                provider: users
+            json_login:
+                check_path: app_login
+                username_path: email
+                password_path: password
             guard:
                 authenticators:
-                    - App\Security\LoginFormAuthenticator
-
-            # activate different ways to authenticate
-            # https://symfony.com/doc/current/security.html#firewalls-authentication
-
-            # https://symfony.com/doc/current/security/impersonating_user.html
-            # switch_user: true
-
-    # Easy way to control access for large sections of your site
-    # Note: Only the *first* access control that matches will be used
-    access_control:
-        #require ROLE_ADMIN for /admin*
-        - { path: '^/admin', roles: ROLE_ADMIN }
-        #- { path: '^/admin', roles: [IS_AUTHENTICATED_FULLY, ROLE_ADMIN] }
-        #- { path: ^/api/(post|comment)/\d+$, roles: ROLE_USER }
-    role_hierarchy:
-        ROLE_ADMIN:       ROLE_USER
-        ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
-        
+                    - App\Security\UserAuthenticator
+            logout:
+                path: app_logout
+                target: /
