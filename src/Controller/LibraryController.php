@@ -8,11 +8,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-
-/***************************** */
-
 use App\Entity\Dessert;
-use Doctrine\Persistence\ManagerRegistry;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\Response;
 
 class LibraryController extends AbstractController
@@ -51,6 +48,9 @@ class LibraryController extends AbstractController
 
     /**
      * @Route("/desserts/{id}", name="dessert_delete", methods={"DELETE"})
+     * 
+     * @IsGranted("IS_AUTHENTICATED_FULLY")
+     * 
      */
     public function delete(int $id): Response
     {
@@ -67,6 +67,9 @@ class LibraryController extends AbstractController
 
     /**
      * @Route("/dessert", name="create_dessert", methods={"POST"})
+     * 
+     * @IsGranted("IS_AUTHENTICATED_FULLY")
+     * 
      */
     public function create(Request $request): Response
     {

@@ -249,7 +249,7 @@ return array(
     'App\\Kernel' => $baseDir . '/src/Kernel.php',
     'App\\Repository\\DessertRepository' => $baseDir . '/src/Repository/DessertRepository.php',
     'App\\Repository\\UserRepository' => $baseDir . '/src/Repository/UserRepository.php',
-    'App\\Security\\LoginFormAuthenticator' => $baseDir . '/src/Security/LoginFormAuthenticator.php',
+    'App\\Security\\UserAuthenticator' => $baseDir . '/src/Security/UserAuthenticator.php',
     'Attribute' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
     'Collator' => $vendorDir . '/symfony/intl/Resources/stubs/Collator.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',

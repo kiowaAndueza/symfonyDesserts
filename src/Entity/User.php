@@ -34,6 +34,11 @@ class User implements UserInterface
      */
     private $password;
 
+    /**
+     * @ORM\Column(type="string", unique=true, nullable=true)
+     */
+    private $apiToken;
+
     public function __construct($id = null, $email = null, $password = null)
     {
         $this->id = $id;
@@ -120,5 +125,16 @@ class User implements UserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    public function  getApiToken(): string
+    {
+        return $this->apiToken;
+    }
+
+    public function  setApiToken(string $apiToken): self
+    {
+        $this->apiToken = $apiToken;
+        return $this;
     }
 }

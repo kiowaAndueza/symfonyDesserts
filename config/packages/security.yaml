@@ -14,15 +14,14 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
-            anonymous: true
             lazy: true
+            anonymous: ~
             json_login:
                 check_path: app_login
-                username_path: email
+                username_path: email, apiToken
                 password_path: password
-            #guard:
-             #   authenticators:
-              #      - App\Security\UserAuthenticator
+            guard:
+                authenticators:
+                    - App\Security\UserAuthenticator
             logout:
                 path: app_logout
-                target: /
