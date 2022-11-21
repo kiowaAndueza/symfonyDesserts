@@ -1,14 +1,14 @@
 # config/packages/security.yaml
 security:
+    providers:
+            app_user_provider:
+                entity:
+                    class: App\Entity\User
+                    property: email
     encoders:
         App\Entity\User:
             algorithm: bcrypt
             cost: 12
-    providers:
-            users:
-                entity:
-                    class: App\Entity\User
-                    property: email
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
@@ -20,9 +20,9 @@ security:
                 check_path: app_login
                 username_path: email
                 password_path: password
-            guard:
-                authenticators:
-                    - App\Security\UserAuthenticator
+            #guard:
+             #   authenticators:
+              #      - App\Security\UserAuthenticator
             logout:
                 path: app_logout
                 target: /
