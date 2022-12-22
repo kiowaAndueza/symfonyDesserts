@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\DessertRepository;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -18,16 +19,32 @@ class Dessert
     private $id;
 
     /**
+     * @Assert\NotBlank(groups={"newDessert"})
+     * @Assert\Length(min=3, groups={"newDessert"})
+     * @Assert\Length(max=25, groups={"newDessert"})
+     * 
      * @ORM\Column(type="string", length=255)
      */
     private $name;
 
     /**
+     * @Assert\NotNull(groups={"newDessert"})
+     * @Assert\Range(
+     *      min = 0.1,
+     *      notInRangeMessage = "You must be {{ min }} minimum.",
+     *      groups={"newDessert"}
+     * )
+     *
+     * 
      * @ORM\Column(type="float")
      */
     private $price;
 
     /**
+     * @Assert\NotBlank(groups={"newDessert"})
+     * @Assert\Length(min=1, groups={"newDessert"})
+     * @Assert\Length(max=300, groups={"newDessert"})
+     * 
      * @ORM\Column(type="string", length=300)
      */
     private $description;
@@ -38,7 +55,15 @@ class Dessert
     private $img;
 
     /**
+     * @Assert\NotNull(groups={"newDessert"})
+     * @Assert\Range(
+     *      min = 1,
+     *      notInRangeMessage = "You must be {{ min }} minimum.",
+     *      groups={"newDessert"}
+     * )
+     * 
      * @ORM\Column(type="integer")
+     * 
      */
     private $quantity;
 

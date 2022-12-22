@@ -7,6 +7,11 @@ api:
     type: annotation
     prefix: /api/
 
+dessertsUser:
+    resource: ../../src/Controller/DessertsUserController.php
+    type: annotation
+    prefix: /list
+
 kernel:
     resource: ../../src/Kernel.php
     type: annotation

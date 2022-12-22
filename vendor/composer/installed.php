@@ -3,7 +3,7 @@
         'name' => '__root__',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '17275b54dd39f11b183426d5234b3f9ba1250b72',
+        'reference' => '43ab4b071af6b481ba2600e5d0be1db56408b641',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         '__root__' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '17275b54dd39f11b183426d5234b3f9ba1250b72',
+            'reference' => '43ab4b071af6b481ba2600e5d0be1db56408b641',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -431,7 +431,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../nikic/php-parser',
             'aliases' => array(),
-            'dev_requirement' => true,
+            'dev_requirement' => false,
         ),
         'ocramius/package-versions' => array(
             'dev_requirement' => false,
@@ -1116,7 +1116,7 @@
             'type' => 'symfony-bundle',
             'install_path' => __DIR__ . '/../symfony/maker-bundle',
             'aliases' => array(),
-            'dev_requirement' => true,
+            'dev_requirement' => false,
         ),
         'symfony/messenger' => array(
             'pretty_version' => 'v5.1.11',

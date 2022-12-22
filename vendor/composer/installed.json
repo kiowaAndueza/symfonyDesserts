@@ -12121,7 +12121,6 @@
         "doctrine/data-fixtures",
         "doctrine/doctrine-fixtures-bundle",
         "myclabs/deep-copy",
-        "nikic/php-parser",
         "phar-io/manifest",
         "phar-io/version",
         "phpunit/php-code-coverage",
@@ -12150,7 +12149,6 @@
         "symfony/css-selector",
         "symfony/debug-bundle",
         "symfony/dom-crawler",
-        "symfony/maker-bundle",
         "symfony/phpunit-bridge",
         "symfony/web-profiler-bundle",
         "theseer/tokenizer"

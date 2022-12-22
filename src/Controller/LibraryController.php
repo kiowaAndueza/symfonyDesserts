@@ -11,6 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Dessert;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class LibraryController extends AbstractController
 {
@@ -71,7 +72,7 @@ class LibraryController extends AbstractController
      * @IsGranted("IS_AUTHENTICATED_FULLY")
      * 
      */
-    public function create(Request $request): Response
+    public function create(Request $request, ValidatorInterface $validator): Response
     {
         $entityManager = $this->getDoctrine()->getManager();
   
@@ -81,6 +82,14 @@ class LibraryController extends AbstractController
         $dessert->setDescription($request->request->get('description'));
         $dessert->setImg($request->request->get('img'));
         $dessert->setQuantity($request->request->get('quantity'));
+        $errors = $validator->validate($dessert, null, ['newDessert']);
+
+        if (count($errors) > 0) {
+            $errorsString = (string) $errors;
+    
+            return new Response($errorsString . Response::$statusTexts);
+        }
+
   
         $entityManager->persist($dessert);
         $entityManager->flush();
